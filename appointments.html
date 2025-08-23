@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-full bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+   <div class="flex h-screen">
+        <!-- Sidebar Overlay (for mobile) -->
+        <div id="sidebar-overlay" class=""></div>
+
+        <!-- Sophisticated Sidebar -->
+        <div id="sidebar" class="w-72 bg-white dark:bg-gray-800 shadow-premium border-r border-gray-200 dark:border-gray-700">
+            <div class="flex flex-col h-full">
+                <!-- Logo and Close Button Section -->
+                <div class="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center h-[85px]">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center">
+                            <i data-lucide="activity" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-display font-bold text-gray-900 dark:text-white">MedFlow</h1>
+                            <p class="text-sm font-body text-gray-500 dark:text-gray-400">Healthcare Admin</p>
+                        </div>
+                    </div>
+                    <button id="sidebar-close" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i data-lucide="x" class="w-5 h-5 dark:text-gray-300"></i>
+                    </button>
+                </div>
+
+                <!-- Navigation -->
+
+                 <nav class="flex-1 overflow-y-auto py-6 px-4 custom-scrollbar">
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="index.html" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200">
+                                <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="patients.html" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200">
+                                <i data-lucide="users" class="w-5 h-5"></i>
+                                <span>Patients</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="appointments.html" class="active flex items-center space-x-3 px-4 py-3 rounded-xl bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 text-purple-700 dark:text-primary-300 font-medium shadow-sm transition-all">
+                                <i data-lucide="calendar" class="w-5 h-5"></i>
+                                <span>Appointments</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="billing.html" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200">
+                                <i data-lucide="credit-card" class="w-5 h-5"></i>
+                                <span>Billing</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lab-results.html" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200">
+                                <i data-lucide="flask-conical" class="w-5 h-5"></i>
+                                <span>Lab Results</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="staff.html" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200">
+                                <i data-lucide="user-check" class="w-5 h-5"></i>
+                                <span>Staff</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="reports.html" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200">
+                                <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                                <span>Reports</span>
+                            </a>
+                        </li>
+                        <li>
+                            <button class="flex items-center justify-between w-full px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200 dropdown-toggle">
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="list-filter" class="w-5 h-5"></i>
+                                    <span>Pages</span>
+                                </div>
+                                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200"></i>
+                            </button>
+                            <ul class="mt-1 space-y-1 hidden">
+                                <li><a href="login.html" class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 flex items-center space-x-3"><i data-lucide="list-restart" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i><span>Login</span></a></li>
+                                <li><a href="signup.html" class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 flex items-center space-x-3"><i data-lucide="circle" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i><span>Signup</span></a></li>
+                                <li><a href="forgot-password.html" class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 flex items-center space-x-3"><i data-lucide="rotate-ccw" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i><span>Forgot password</span></a></li>
+                                <li><a href="404.html" class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 flex items-center space-x-3"><i data-lucide="sticky-note" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i><span>404 page</span></a></li>
+                                <li><a href="500.html" class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 flex items-center space-x-3"><i data-lucide="columns-2" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i><span>500 page</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- User Profile -->
+                <div class="border-t border-gray-200 dark:border-gray-700 h-20 flex items-center p-4">
+                    <div class="flex items-center space-x-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700 w-full">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-700 rounded-full flex items-center justify-center">
+                            <span class="text-white font-semibold text-sm">DR</span>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-display font-semibold text-gray-900 dark:text-white">Dr. Wilson</p>
+                            <p class="text-xs font-body text-gray-500 dark:text-gray-400">Chief Medical Officer</p>
+                        </div>
+                        <a href="#"><i data-lucide="log-out" class="w-4 h-4 text-gray-400"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-4 h-[85px]">
+                <div class="flex items-center justify-between flex-wrap gap-4 header-content">
+                    <div class="flex items-center flex-1 min-w-0">
+                        <!-- Hamburger Menu Button (visible on mobile/tablet) -->
+                        <button id="sidebar-toggle" class="hamburger-btn mr-3 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <i data-lucide="menu" class="w-5 h-5 dark:text-gray-300"></i>
+                        </button>
+                        <div class="min-w-0">
+                            <h2 class="text-xl sm:text-2xl font-display font-bold text-gray-900 dark:text-white truncate">Appointments</h2>
+                            <p class="text-xs sm:text-sm font-body text-gray-500 dark:text-gray-400 mt-1 truncate">Manage patient appointments.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 sm:space-x-3 header-actions flex-shrink-0">
+                        <div class="relative search-container hidden sm:block">
+                            <input type="text" placeholder="Search ..." class="w-40 md:w-48 lg:w-60 px-4 py-2 pl-10 pr-4 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent font-body bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none">
+                            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3"></i>
+                        </div>
+                        <button id="mobile-search-btn" class="sm:hidden p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                            <i data-lucide="search" class="w-5 h-5"></i>
+                        </button>
+                        <!-- Theme toggle button -->
+                        <button id="theme-toggle" class="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                            <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                            <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                        </button>
+                        
+                        <!-- Notification Dropdown -->
+                        <div class="relative">
+                            <button id="notification-btn" class="relative p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                                <i data-lucide="bell" class="w-5 h-5"></i>
+                                <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
+                            </button>
+                            
+                            <!-- Notification Dropdown Menu -->
+                            <div id="notification-dropdown" class="hidden absolute right-0 mt-2 w-80 sm:w-96 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 z-50 py-2 glass-effect">
+                                <div class="px-4 py-2 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                                    <h3 class="font-display font-semibold text-gray-900 dark:text-white">Notifications</h3>
+                                    <button class="text-xs text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium">Mark all as read</button>
+                                </div>
+                                <div class="max-h-96 overflow-y-auto custom-scrollbar">
+                                    <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <i data-lucide="calendar" class="w-5 h-5 text-white"></i>
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <p class="text-sm font-medium text-gray-900 dark:text-white truncate">New appointment scheduled</p>
+                                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">John Smith booked an appointment for tomorrow at 10:00 AM</p>
+                                                <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">2 minutes ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <i data-lucide="alert-triangle" class="w-5 h-5 text-white"></i>
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <p class="text-sm font-medium text-gray-900 dark:text-white truncate">Critical lab result</p>
+                                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Patient #2847 has abnormal test results requiring review</p>
+                                                <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">15 minutes ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <i data-lucide="credit-card" class="w-5 h-5 text-white"></i>
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <p class="text-sm font-medium text-gray-900 dark:text-white truncate">Payment received</p>
+                                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Invoice #INV-2024-0189 has been paid by Robert Johnson</p>
+                                                <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">1 hour ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <i data-lucide="message-square" class="w-5 h-5 text-white"></i>
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <p class="text-sm font-medium text-gray-900 dark:text-white truncate">New message from patient</p>
+                                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Miller sent a new message regarding her prescription</p>
+                                                <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">3 hours ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-2 border-t border-gray-200 dark:border-gray-700 text-center">
+                                    <a href="#" class="text-sm text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium">View all notifications</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Settings Dropdown -->
+                        <div class="relative">
+                            <button id="settings-btn" class="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                                <i data-lucide="settings" class="w-5 h-5"></i>
+                            </button>
+                            
+                            <!-- Settings Dropdown Menu -->
+                            <div id="settings-dropdown" class="hidden absolute right-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 z-50 py-2 glass-effect">
+                                <div class="px-4 py-2 border-b border-gray-200 dark:border-gray-700">
+                                    <h3 class="font-display font-semibold text-gray-900 dark:text-white">Settings</h3>
+                                </div>
+                                <div class="py-2">
+                                    <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                        <i data-lucide="user" class="w-4 h-4 mr-3"></i>
+                                        Profile Settings
+                                    </a>
+                                    <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-70 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                        <i data-lucide="bell" class="w-4 h-4 mr-3"></i>
+                                        Notifications
+                                    </a>
+                                    <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                        <i data-lucide="shield" class="w-4 h-4 mr-3"></i>
+                                        Privacy & Security
+                                    </a>
+                                    <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                        <i data-lucide="credit-card" class="w-4 h-4 mr-3"></i>
+                                        Billing
+                                    </a>
+                                </div>
+                                <div class="px-4 py-2 border-t border-gray-200 dark:border-gray-700">
+                                    <button class="w-full flex items-center justify-center px-4 py-2 bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg transition-colors">
+                                        <i data-lucide="log-out" class="w-4 h-4 mr-2"></i>
+                                        Sign out
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Search Bar (hidden by default) -->
+                <div id="mobile-search-container" class="hidden mt-3">
+                    <div class="relative">
+                        <input type="text" placeholder="Search patients, appointments..." class="w-full px-4 py-2 pl-10 pr-4 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent font-body bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none">
+                        <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3"></i>
+                    </div>
+                </div>
+            </header>
+
+         <!-- Appointments Content -->
+        <main class="flex-1 overflow-y-auto p-4 sm:p-6 bg-gray-50 dark:bg-gray-900">
+            <!-- Calendar Header -->
+            <div class="mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-end gap-4">
+                    <button data-modal-target="AddAppointmentModal" class="bg-purple-600 text-white px-4 py-2 rounded-xl hover:bg-purple-700 transition-colors flex items-center space-x-2 font-body font-medium">
+                        <i data-lucide="plus" class="w-4 h-4"></i>
+                        <span class="hidden sm:inline">New Appointment</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Today's Schedule -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                <!-- Time Slots -->
+                <div class="lg:col-span-3">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700">
+                        <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-lg font-display font-semibold text-gray-900 dark:text-white">Today's Schedule</h3>
+                                <select id="statusFilter" class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-body bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none">
+                                    <option value="all">All Status</option>
+                                    <option value="confirmed">Confirmed</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="in-progress">In Progress</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 space-y-4">
+                            <!-- 9:00 AM -->
+                            <div class="appointment-card flex items-start space-x-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
+                                <div class="appointment-time text-sm font-medium text-neutral-600 dark:text-blue-200 w-16">9:00 AM</div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="appointment-title font-semibold text-neutral-800 dark:text-white">John Smith - General Checkup</h4>
+                                        <span class="status-badge px-2 py-1 bg-blue-100 dark:bg-blue-800/40 text-blue-700 dark:text-blue-300 text-xs font-medium rounded-full">Confirmed</span>
+                                    </div>
+                                    <p class="appointment-details text-sm text-neutral-600 dark:text-blue-200">Dr. Johnson • Room 101</p>
+                                    <div class="flex items-center space-x-2 mt-2">
+                                        <button data-modal-target="appointmentDetailsModal" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm font-medium">View Details</button>
+                                        <button class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 text-sm">Reschedule</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 9:30 AM -->
+                            <div class="appointment-card flex items-start space-x-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
+                                <div class="appointment-time text-sm font-medium text-neutral-600 dark:text-green-200 w-16">9:30 AM</div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="appointment-title font-semibold text-neutral-800 dark:text-white">Emily Martinez - Follow-up</h4>
+                                        <span class="status-badge px-2 py-1 bg-green-100 dark:bg-green-800/40 text-green-700 dark:text-green-300 text-xs font-medium rounded-full">In Progress</span>
+                                    </div>
+                                    <p class="appointment-details text-sm text-neutral-600 dark:text-green-200">Dr. Smith • Room 102</p>
+                                    <div class="flex items-center space-x-2 mt-2">
+                                        <button data-modal-target="appointmentDetailsModal" class="text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 text-sm font-medium">View Details</button>
+                                        <button class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 text-sm">Complete</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 10:00 AM -->
+                            <div class="appointment-card flex items-start space-x-4 p-4 bg-neutral-50 dark:bg-gray-800 rounded-xl border border-neutral-200 dark:border-gray-700">
+                                <div class="appointment-time text-sm font-medium text-neutral-600 dark:text-gray-300 w-16">10:00 AM</div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="appointment-title font-semibold text-neutral-800 dark:text-white">Michael Johnson - Consultation</h4>
+                                        <span class="status-badge px-2 py-1 bg-neutral-100 dark:bg-gray-700 text-neutral-700 dark:text-gray-300 text-xs font-medium rounded-full">Scheduled</span>
+                                    </div>
+                                    <p class="appointment-details text-sm text-neutral-600 dark:text-gray-400">Dr. Wilson • Room 103</p>
+                                    <div class="flex items-center space-x-2 mt-2">
+                                        <button data-modal-target="appointmentDetailsModal" class="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 text-sm font-medium">View Details</button>
+                                        <button class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 text-sm">Reschedule</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 10:30 AM -->
+                            <div class="appointment-card flex items-start space-x-4 p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl border border-orange-200 dark:border-orange-800">
+                                <div class="appointment-time text-sm font-medium text-neutral-600 dark:text-orange-200 w-16">10:30 AM</div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="appointment-title font-semibold text-neutral-800 dark:text-white">Davis - Lab Review</h4>
+                                        <span class="status-badge px-2 py-1 bg-orange-100 dark:bg-orange-800/40 text-orange-700 dark:text-orange-300 text-xs font-medium rounded-full">Pending</span>
+                                    </div>
+                                    <p class="appointment-details text-sm text-neutral-600 dark:text-orange-200">Dr. Brown • Room 104</p>
+                                    <div class="flex items-center space-x-2 mt-2">
+                                        <button data-modal-target="appointmentDetailsModal" class="text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 text-sm font-medium">View Details</button>
+                                        <button class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 text-sm">Confirm</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 11:00 AM -->
+                            <div class="appointment-card flex items-start space-x-4 p-4 bg-neutral-50 dark:bg-gray-800 rounded-xl border border-neutral-200 dark:border-gray-700">
+                                <div class="appointment-time text-sm font-medium text-neutral-600 dark:text-gray-300 w-16">11:00 AM</div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="appointment-title font-semibold text-neutral-800 dark:text-white">Robert Wilson - Physical Therapy</h4>
+                                        <span class="status-badge px-2 py-1 bg-neutral-100 dark:bg-gray-700 text-neutral-700 dark:text-gray-300 text-xs font-medium rounded-full">Scheduled</span>
+                                    </div>
+                                    <p class="appointment-details text-sm text-neutral-600 dark:text-gray-400">Dr. Taylor • Room 105</p>
+                                    <div class="flex items-center space-x-2 mt-2">
+                                        <button data-modal-target="appointmentDetailsModal" class="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 text-sm font-medium">View Details</button>
+                                        <button class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 text-sm">Reschedule</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 11:30 AM -->
+                            <div class="appointment-card flex items-start space-x-4 p-4 bg-neutral-50 dark:bg-gray-800 rounded-xl border border-neutral-200 dark:border-gray-700">
+                                <div class="appointment-time text-sm font-medium text-neutral-600 dark:text-gray-300 w-16">11:30 AM</div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h4 class="appointment-title font-semibold text-neutral-800 dark:text-white">Lisa Brown - Vaccination</h4>
+                                        <span class="status-badge px-2 py-1 bg-neutral-100 dark:bg-gray-700 text-neutral-700 dark:text-gray-300 text-xs font-medium rounded-full">Scheduled</span>
+                                    </div>
+                                    <p class="appointment-details text-sm text-neutral-600 dark:text-gray-400">Dr. Johnson • Room 101</p>
+                                    <div class="flex items-center space-x-2 mt-2">
+                                        <button data-modal-target="appointmentDetailsModal" class="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 text-sm font-medium">View Details</button>
+                                        <button class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 text-sm">Reschedule</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Info -->
+                <div class="space-y-6">
+                    <!-- Quick Stats -->
+                    <div class="sidebar-info bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+                        <h3 class="sidebar-info-title text-lg font-semibold text-neutral-800 dark:text-white mb-4">Today's Summary</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="sidebar-info-text text-neutral-600 dark:text-gray-300">Total Appointments</span>
+                                <span class="font-semibold text-neutral-800 dark:text-white">47</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="sidebar-info-text text-neutral-600 dark:text-gray-300">Completed</span>
+                                <span class="font-semibold text-green-600 dark:text-green-400">23</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="sidebar-info-text text-neutral-600 dark:text-gray-300">In Progress</span>
+                                <span class="font-semibold text-blue-600 dark:text-blue-400">3</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="sidebar-info-text text-neutral-600 dark:text-gray-300">Pending</span>
+                                <span class="font-semibold text-orange-600 dark:text-orange-400">8</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="sidebar-info-text text-neutral-600 dark:text-gray-300">Cancelled</span>
+                                <span class="font-semibold text-red-600 dark:text-red-400">2</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Available Doctors -->
+                    <div class="sidebar-info bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+                        <h3 class="sidebar-info-title text-lg font-semibold text-neutral-800 dark:text-white mb-4">Available Doctors</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                                    <div class="w-2 h-2 bg-green-500 dark:bg-green-400 rounded-full"></div>
+                                </div>
+                                <div>
+                                    <p class="sidebar-info-title font-medium text-neutral-800 dark:text-white">Dr. Johnson</p>
+                                    <p class="sidebar-info-text text-xs text-neutral-500 dark:text-gray-400">General Medicine</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                                    <div class="w-2 h-2 bg-green-500 dark:bg-green-400 rounded-full"></div>
+                                </div>
+                                <div>
+                                    <p class="sidebar-info-title font-medium text-neutral-800 dark:text-white">Dr. Smith</p>
+                                    <p class="sidebar-info-text text-xs text-neutral-500 dark:text-gray-400">Cardiology</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center">
+                                    <div class="w-2 h-2 bg-red-500 dark:bg-red-400 rounded-full"></div>
+                                </div>
+                                <div>
+                                    <p class="sidebar-info-title font-medium text-neutral-800 dark:text-white">Dr. Wilson</p>
+                                    <p class="sidebar-info-text text-xs text-neutral-500 dark:text-gray-400">Pediatrics</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center">
+                                    <div class="w-2 h-2 bg-green-500 dark:bg-green-400 rounded-full"></div>
+                                </div>
+                                <div>
+                                    <p class="sidebar-info-title font-medium text-neutral-800 dark:text-white">Dr. Brown</p>
+                                    <p class="sidebar-info-text text-xs text-neutral-500 dark:text-gray-400">Dermatology</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-neutral-200 dark:border-gray-700">
+                        <h3 class="sidebar-info-title text-lg font-semibold text-neutral-800 dark:text-white mb-4">Quick Actions</h3>
+                        <div class="space-y-2">
+                            <button class="quick-action-btn w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-neutral-50 dark:hover:bg-gray-700 transition-colors text-left">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar-plus" class="lucide lucide-calendar-plus w-5 h-5 text-purple-600 dark:text-purple-400"><path d="M16 19h6"></path><path d="M16 2v4"></path><path d="M19 16v6"></path><path d="M21 12.598V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5"></path><path d="M3 10h18"></path><path d="M8 2v4"></path></svg>
+                                <span class="font-medium text-neutral-700 dark:text-gray-300">Schedule Appointment</span>
+                            </button>
+                            
+                            <button class="quick-action-btn w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-neutral-50 dark:hover:bg-gray-700 transition-colors text-left">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" class="lucide lucide-clock w-5 h-5 text-blue-600 dark:text-blue-400"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>
+                                <span class="font-medium text-neutral-700 dark:text-gray-300">View Waiting List</span>
+                            </button>
+                            
+                            <button class="quick-action-btn w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-neutral-50 dark:hover:bg-gray-700 transition-colors text-left">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="users" class="lucide lucide-users w-5 h-5 text-green-600 dark:text-green-400"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                                <span class="font-medium text-neutral-700 dark:text-gray-300">Manage Doctors</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+         <!-- Footer -->
+        <footer>
+            <div class="py-6 px-4 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row justify-center items-center h-16">
+                <p class="text-sm font-body text-gray-500 dark:text-gray-400 mb-4 md:mb-0">
+                    © 2024 MedFlow. All rights reserved.
+                </p>
+            </div>
+        </footer>
+        </div>
+    </div>
+
+<div id="AddAppointmentModal" data-modal-backdrop="static" 
+    class="tw-modal fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div class="bg-white dark:bg-gray-800 tw-modal-dialog rounded-2xl shadow-premium p-8 w-full max-w-3xl mx-4 max-h-[90vh] overflow-y-auto text-gray-900 dark:text-gray-100">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-display font-bold">Schedule New Appointment</h3>
+             <button data-modal-close class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors" >
+                    <i data-lucide="x" class="w-6 h-6 dark:text-gray-300"></i>
+            </button>
+        </div>
+        
+        <form id="addAppointmentForm" class="space-y-6">
+            <!-- Patient and Doctor Selection -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body">Patient *</label>
+                    <select name="patient" required 
+                        class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 
+                               rounded-xl bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 
+                               focus:ring-2 focus:ring-purple-500 focus:border-transparent font-body focus:outline-none">
+                        <option value="">Select Patient</option>
+                        <option value="john-smith">John Smith - #2847</option>
+                        <option value="emily-martinez">Emily Martinez - #2846</option>
+                        <option value="michael-johnson">Michael Johnson - #2845</option>
+                        <option value="sarah-davis">Davis - #2844</option>
+                        <option value="robert-wilson">Robert Wilson - #2843</option>
+                        <option value="lisa-brown">Lisa Brown - #2842</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body">Doctor *</label>
+                    <select name="doctor" required 
+                        class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 
+                               rounded-xl bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 
+                               focus:ring-2 focus:ring-purple-500 focus:border-transparent font-body focus:outline-none">
+                        <option value="">Select Doctor</option>
+                        <option value="dr-johnson">Dr. Johnson - General Medicine</option>
+                        <option value="dr-smith">Dr. Smith - Cardiology</option>
+                        <option value="dr-wilson">Dr. Wilson - Pediatrics</option>
+                        <option value="dr-brown">Dr. Brown - Dermatology</option>
+                        <option value="dr-taylor">Dr. Taylor - Physical Therapy</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Date and Time -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body">Date *</label>
+                    <input type="date" name="date" required 
+                        class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 
+                               rounded-xl bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 
+                               focus:ring-2 focus:ring-purple-500 focus:border-transparent font-body focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body">Start Time *</label>
+                    <input type="time" name="startTime" required 
+                        class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 
+                               rounded-xl bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 
+                               focus:ring-2 focus:ring-purple-500 focus:border-transparent font-body focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body">Duration</label>
+                    <select name="duration" 
+                        class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 
+                               rounded-xl bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 
+                               focus:ring-2 focus:ring-purple-500 focus:border-transparent font-body focus:outline-none">
+                        <option value="15">15 minutes</option>
+                        <option value="30" selected>30 minutes</option>
+                        <option value="45">45 minutes</option>
+                        <option value="60">1 hour</option>
+                        <option value="90">1.5 hours</option>
+                        <option value="120">2 hours</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Appointment Details -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body">Appointment Type *</label>
+                    <select name="type" required 
+                        class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 
+                               rounded-xl bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 
+                               focus:ring-2 focus:ring-purple-500 focus:border-transparent font-body focus:outline-none">
+                        <option value="">Select Type</option>
+                        <option value="consultation">Consultation</option>
+                        <option value="follow-up">Follow-up</option>
+                        <option value="physical-exam">Physical Exam</option>
+                        <option value="lab-review">Lab Review</option>
+                        <option value="vaccination">Vaccination</option>
+                        <option value="surgery">Surgery</option>
+                        <option value="therapy">Therapy</option>
+                        <option value="emergency">Emergency</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body">Room</label>
+                    <select name="room" 
+                        class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 
+                               rounded-xl bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 
+                               focus:ring-2 focus:ring-purple-500 focus:border-transparent font-body focus:outline-none">
+                        <option value="">Auto-assign</option>
+                        <option value="101">Room 101</option>
+                        <option value="102">Room 102</option>
+                        <option value="103">Room 103</option>
+                        <option value="104">Room 104</option>
+                        <option value="105">Room 105</option>
+                        <option value="201">Room 201</option>
+                        <option value="202">Room 202</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Priority and Status -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body">Priority</label>
+                    <select name="priority" 
+                        class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 
+                               rounded-xl bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 
+                               focus:ring-2 focus:ring-purple-500 focus:border-transparent font-body focus:outline-none">
+                        <option value="normal" selected>Normal</option>
+                        <option value="high">High</option>
+                        <option value="urgent">Urgent</option>
+                        <option value="emergency">Emergency</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body">Initial Status</label>
+                    <select name="status" 
+                        class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 
+                               rounded-xl bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 
+                               focus:ring-2 focus:ring-purple-500 focus:border-transparent font-body focus:outline-none">
+                        <option value="pending">Pending Confirmation</option>
+                        <option value="confirmed" selected>Confirmed</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Notes and Reason -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body">Reason for Visit</label>
+                <input type="text" name="reason" placeholder="Brief description of the appointment purpose"
+                    class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl 
+                           bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 
+                           focus:ring-2 focus:ring-purple-500 focus:border-transparent font-body focus:outline-none">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body">Additional Notes</label>
+                <textarea name="notes" rows="3" placeholder="Any additional information or special instructions..."
+                    class="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl 
+                           bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 
+                           focus:ring-2 focus:ring-purple-500 focus:border-transparent font-body focus:outline-none"></textarea>
+            </div>
+
+            <!-- Notification Settings -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3 font-body">Notification Settings</label>
+                <div class="space-y-2">
+                    <label class="flex items-center space-x-3">
+                        <input type="checkbox" name="emailReminder" checked 
+                            class="w-4 h-4 text-purple-600 border-gray-300 dark:border-gray-600 rounded focus:ring-purple-500 focus:outline-none">
+                        <span class="text-sm text-gray-700 dark:text-gray-300 font-body">Send email reminder to patient</span>
+                    </label>
+                    <label class="flex items-center space-x-3">
+                        <input type="checkbox" name="smsReminder" 
+                            class="w-4 h-4 text-purple-600 border-gray-300 dark:border-gray-600 rounded focus:ring-purple-500 focus:outline-none">
+                        <span class="text-sm text-gray-700 dark:text-gray-300 font-body">Send SMS reminder to patient</span>
+                    </label>
+                    <label class="flex items-center space-x-3">
+                        <input type="checkbox" name="doctorNotification" checked 
+                            class="w-4 h-4 text-purple-600 border-gray-300 dark:border-gray-600 rounded focus:ring-purple-500 focus:outline-none">
+                        <span class="text-sm text-gray-700 dark:text-gray-300 font-body">Notify assigned doctor</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="flex justify-end space-x-4 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <button type="button" data-modal-close 
+                    class="px-6 py-3 border border-gray-200 dark:border-gray-700 rounded-xl 
+                           font-medium text-gray-700 dark:text-gray-300 
+                           hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors font-body">
+                    Cancel
+                </button>
+                <button type="submit" 
+                    class="px-6 py-3 bg-purple-600 text-white rounded-xl font-medium hover:bg-purple-700 transition-colors font-body">
+                    Schedule Appointment
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Appointment Details Modal -->
+<div id="appointmentDetailsModal" 
+    class="tw-modal fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div class="tw-modal-dialog bg-white dark:bg-gray-800 rounded-2xl shadow-premium p-8 w-full max-w-3xl mx-4 max-h-[90vh] overflow-y-auto text-gray-900 dark:text-gray-100">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-display font-bold">Appointment Details</h3>
+             <button data-modal-close class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors" >
+                    <i data-lucide="x" class="w-6 h-6 dark:text-gray-300"></i>
+            </button>
+        </div>
+        
+        <div id="appointmentDetailsContent" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <h4 class="font-semibold font-display">Patient Information</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
+                            <i data-lucide="user" class="w-4 h-4 text-gray-500 "></i>
+                            <span class="font-body">John Smith (#2847)</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
+                            <i data-lucide="phone" class="w-4 h-4 text-gray-500"></i>
+                            <span class="font-body">+1 (555) 123-4567</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h4 class="font-semibold font-display">Appointment Details</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
+                            <i data-lucide="clock" class="w-4 h-4 text-gray-500"></i>
+                            <span class="font-body">9:00 AM</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
+                            <i data-lucide="user-check" class="w-4 h-4 text-gray-500"></i>
+                            <span class="font-body">Dr. Johnson</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-gray-500"></i>
+                            <span class="font-body">Room 101</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
+                            <i data-lucide="clipboard" class="w-4 h-4 text-gray-500"></i>
+                            <span class="font-body">General Checkup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <h4 class="font-semibold font-display">Reason for Visit</h4>
+                <p class="text-gray-700 dark:text-gray-300 font-body">Annual physical examination</p>
+            </div>
+            
+            <div class="space-y-4">
+                <h4 class="font-semibold font-display">Notes</h4>
+                <p class="text-gray-700 dark:text-gray-300 font-body">Patient has been feeling well, routine checkup</p>
+            </div>
+            
+            <!-- Footer -->
+            <div class="flex justify-end space-x-4 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <button class="px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-xl 
+                               font-medium text-gray-700 dark:text-gray-300 
+                               hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors font-body">
+                    Reschedule
+                </button>
+                <button class="px-4 py-2 bg-red-600 text-white rounded-xl font-medium hover:bg-red-700 transition-colors font-body">
+                    Cancel Appointment
+                </button>
+                <button class="px-4 py-2 bg-green-600 text-white rounded-xl font-medium hover:bg-green-700 transition-colors font-body">
+                    Mark Complete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="assets/js/tailwind-modal.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

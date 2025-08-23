@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-full bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="flex h-screen">
+        <!-- Sidebar Overlay (for mobile) -->
+        <div id="sidebar-overlay" class=""></div>
+
+        <!-- Sophisticated Sidebar -->
+        <div id="sidebar" class="w-72 bg-white dark:bg-gray-800 shadow-premium border-r border-gray-200 dark:border-gray-700">
+            <div class="flex flex-col h-full">
+                <!-- Logo and Close Button Section -->
+                <div class="p-6 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center h-[85px]">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center">
+                            <i data-lucide="activity" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-display font-bold text-gray-900 dark:text-white">MedFlow</h1>
+                            <p class="text-sm font-body text-gray-500 dark:text-gray-400">Healthcare Admin</p>
+                        </div>
+                    </div>
+                    <button id="sidebar-close" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i data-lucide="x" class="w-5 h-5 dark:text-gray-300"></i>
+                    </button>
+                </div>
+
+                <!-- Navigation -->
+
+                <nav class="flex-1 overflow-y-auto py-6 px-4 custom-scrollbar">
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="index.html" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200">
+                                <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="patients.html" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200">
+                                <i data-lucide="users" class="w-5 h-5"></i>
+                                <span>Patients</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="appointments.html" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200">
+                                <i data-lucide="calendar" class="w-5 h-5"></i>
+                                <span>Appointments</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="billing.html" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200">
+                                <i data-lucide="credit-card" class="w-5 h-5"></i>
+                                <span>Billing</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="lab-results.html" class="active flex items-center space-x-3 px-4 py-3 rounded-xl bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 text-purple-700 dark:text-primary-300 font-medium shadow-sm transition-all">
+                                <i data-lucide="flask-conical" class="w-5 h-5"></i>
+                                <span>Lab Results</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="staff.html" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200">
+                                <i data-lucide="user-check" class="w-5 h-5"></i>
+                                <span>Staff</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="reports.html" class="nav-item flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200">
+                                <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                                <span>Reports</span>
+                            </a>
+                        </li>
+                        <li>
+                            <button class="flex items-center justify-between w-full px-4 py-3 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white font-medium transition-all duration-200 dropdown-toggle">
+                                <div class="flex items-center space-x-3">
+                                    <i data-lucide="list-filter" class="w-5 h-5"></i>
+                                    <span>Pages</span>
+                                </div>
+                                <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200"></i>
+                            </button>
+                            <ul class="mt-1 space-y-1 hidden">
+                                <li><a href="login.html" class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 flex items-center space-x-3"><i data-lucide="list-restart" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i><span>Login</span></a></li>
+                                <li><a href="signup.html" class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 flex items-center space-x-3"><i data-lucide="circle" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i><span>Signup</span></a></li>
+                                <li><a href="forgot-password.html" class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 flex items-center space-x-3"><i data-lucide="rotate-ccw" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i><span>Forgot password</span></a></li>
+                                <li><a href="404.html" class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 flex items-center space-x-3"><i data-lucide="sticky-note" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i><span>404 page</span></a></li>
+                                <li><a href="500.html" class="px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-all duration-200 flex items-center space-x-3"><i data-lucide="columns-2" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i><span>500 page</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- User Profile -->
+                <div class="border-t border-gray-200 dark:border-gray-700 h-20 flex items-center p-4">
+                    <div class="flex items-center space-x-3 p-3 rounded-xl bg-gray-50 dark:bg-gray-700 w-full">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-700 rounded-full flex items-center justify-center">
+                            <span class="text-white font-semibold text-sm">DR</span>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm font-display font-semibold text-gray-900 dark:text-white">Dr. Wilson</p>
+                            <p class="text-xs font-body text-gray-500 dark:text-gray-400">Chief Medical Officer</p>
+                        </div>
+                        <a href="#"><i data-lucide="log-out" class="w-4 h-4 text-gray-400 dark:text-gray-500"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 px-4 sm:px-6 py-4 h-[85px]">
+                <div class="flex items-center justify-between flex-wrap gap-4 header-content">
+                    <div class="flex items-center flex-1 min-w-0">
+                        <!-- Hamburger Menu Button (visible on mobile/tablet) -->
+                        <button id="sidebar-toggle" class="hamburger-btn mr-3 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+                            <i data-lucide="menu" class="w-5 h-5 dark:text-gray-300"></i>
+                        </button>
+                        <div class="min-w-0">
+                            <h2 class="text-xl sm:text-2xl font-display font-bold text-gray-900 dark:text-white truncate">Lab Results</h2>
+                            <p class="text-xs sm:text-sm font-body text-gray-500 dark:text-gray-400 mt-1 truncate">Manage laboratory tests and results</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 sm:space-x-3 header-actions flex-shrink-0">
+                        <div class="relative search-container hidden sm:block">
+                            <input type="text" placeholder="Search ..." class="w-40 md:w-48 lg:w-60 px-4 py-2 pl-10 pr-4 border focus:outline-none border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent font-body bg-white dark:bg-gray-700 text-gray-900 dark:text-white dark:placeholder-gray-400 focus:outline-none">
+                            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3"></i>
+                        </div>
+                        <button id="mobile-search-btn" class="sm:hidden p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                            <i data-lucide="search" class="w-5 h-5"></i>
+                        </button>
+                        <!-- Theme toggle button -->
+                        <button id="theme-toggle" class="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                            <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                            <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                        </button>
+                        
+                        <!-- Notification Dropdown -->
+                        <div class="relative">
+                            <button id="notification-btn" class="relative p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                                <i data-lucide="bell" class="w-5 h-5"></i>
+                                <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></span>
+                            </button>
+                            
+                            <!-- Notification Dropdown Menu -->
+                            <div id="notification-dropdown" class="hidden absolute right-0 mt-2 w-80 sm:w-96 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 z-50 py-2 glass-effect">
+                                <div class="px-4 py-2 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                                    <h3 class="font-display font-semibold text-gray-900 dark:text-white">Notifications</h3>
+                                    <button class="text-xs text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium">Mark all as read</button>
+                                </div>
+                                <div class="max-h-96 overflow-y-auto custom-scrollbar">
+                                    <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <i data-lucide="calendar" class="w-5 h-5 text-white"></i>
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <p class="text-sm font-medium text-gray-900 dark:text-white truncate">New appointment scheduled</p>
+                                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">John Smith booked an appointment for tomorrow at 10:00 AM</p>
+                                                <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">2 minutes ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <i data-lucide="alert-triangle" class="w-5 h-5 text-white"></i>
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <p class="text-sm font-medium text-gray-900 dark:text-white truncate">Critical lab result</p>
+                                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Patient #2847 has abnormal test results requiring review</p>
+                                                <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">15 minutes ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <i data-lucide="credit-card" class="w-5 h-5 text-white"></i>
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <p class="text-sm font-medium text-gray-900 dark:text-white truncate">Payment received</p>
+                                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Invoice #INV-2024-0189 has been paid by Robert Johnson</p>
+                                                <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">1 hour ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                                <i data-lucide="message-square" class="w-5 h-5 text-white"></i>
+                                            </div>
+                                            <div class="flex-1 min-w-0">
+                                                <p class="text-sm font-medium text-gray-900 dark:text-white truncate">New message from patient</p>
+                                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Miller sent a new message regarding her prescription</p>
+                                                <p class="text-xs text-gray-400 dark:text-gray-500 mt-1">3 hours ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-2 border-t border-gray-200 dark:border-gray-700 text-center">
+                                    <a href="#" class="text-sm text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-medium">View all notifications</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Settings Dropdown -->
+                        <div class="relative">
+                            <button id="settings-btn" class="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                                <i data-lucide="settings" class="w-5 h-5"></i>
+                            </button>
+                            
+                            <!-- Settings Dropdown Menu -->
+                            <div id="settings-dropdown" class="hidden absolute right-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 z-50 py-2 glass-effect">
+                                <div class="px-4 py-2 border-b border-gray-200 dark:border-gray-700">
+                                    <h3 class="font-display font-semibold text-gray-900 dark:text-white">Settings</h3>
+                                </div>
+                                <div class="py-2">
+                                    <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                        <i data-lucide="user" class="w-4 h-4 mr-3"></i>
+                                        Profile Settings
+                                    </a>
+                                    <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                        <i data-lucide="bell" class="w-4 h-4 mr-3"></i>
+                                        Notifications
+                                    </a>
+                                    <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                        <i data-lucide="shield" class="w-4 h-4 mr-3"></i>
+                                        Privacy & Security
+                                    </a>
+                                    <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                        <i data-lucide="credit-card" class="w-4 h-4 mr-3"></i>
+                                        Billing
+                                    </a>
+                                </div>
+                                <div class="px-4 py-2 border-t border-gray-200 dark:border-gray-700">
+                                    <button class="w-full flex items-center justify-center px-4 py-2 bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg transition-colors">
+                                        <i data-lucide="log-out" class="w-4 h-4 mr-2"></i>
+                                        Sign out
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Search Bar (hidden by default) -->
+                <div id="mobile-search-container" class="hidden mt-3">
+                    <div class="relative">
+                        <input type="text" placeholder="Search patients, appointments..." class="w-full px-4 py-2 pl-10 pr-4 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent font-body bg-white dark:bg-gray-700 text-gray-900 dark:text-white dark:placeholder-gray-400 focus:outline-none">
+                        <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-3"></i>
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-y-auto p-4 sm:p-6 bg-gray-50 dark:bg-gray-900">
+
+                <!-- Status Overview -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-premium border border-gray-200 dark:border-gray-700 hover-lift" >
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm font-medium font-body" >Pending Results</p>
+                                <p class="text-3xl font-bold text-gray-800 dark:text-white mt-1 font-display" >23</p>
+                                <p class="text-orange-600 dark:text-orange-500 text-sm mt-2 font-body">↗ 5 urgent</p>
+                            </div>
+                            <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center">
+                                <i data-lucide="clock" class="w-6 h-6 text-orange-600 dark:text-orange-500"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-premium border border-gray-200 dark:border-gray-700 hover-lift" >
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm font-medium font-body" >Completed Today</p>
+                                <p class="text-3xl font-bold text-gray-800 dark:text-white mt-1 font-display" >18</p>
+                                <p class="text-green-600 dark:text-green-500 text-sm mt-2 font-body">↗ +3 from yesterday</p>
+                            </div>
+                            <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
+                                <i data-lucide="check-circle" class="w-6 h-6 text-green-600 dark:text-green-500"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-premium border border-gray-200 dark:border-gray-700 hover-lift" >
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm font-medium font-body" >Critical Results</p>
+                                <p class="text-3xl font-bold text-gray-800 dark:text-white mt-1 font-display" >3</p>
+                                <p class="text-red-600 dark:text-red-500 text-sm mt-2 font-body">↗ Requires attention</p>
+                            </div>
+                            <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center">
+                                <i data-lucide="alert-triangle" class="w-6 h-6 text-red-600 dark:text-red-500"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-premium border border-gray-200 dark:border-gray-700 hover-lift" >
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm font-medium font-body" >Tests This Month</p>
+                                <p class="text-3xl font-bold text-gray-800 dark:text-white mt-1 font-display" >247</p>
+                                <p class="text-blue-600 dark:text-blue-500 text-sm mt-2 font-body">↗ +15% from last month</p>
+                            </div>
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
+                                <i data-lucide="flask-conical" class="w-6 h-6 text-blue-600 dark:text-blue-500"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="mb-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <button class="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-lg font-medium font-body">All Results</button>
+                            <button class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg font-medium transition-colors font-body" >Pending</button>
+                            <button class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg font-medium transition-colors font-body" >Completed</button>
+                            <button class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg font-medium transition-colors font-body" >Critical</button>
+                            <button class="px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg font-medium transition-colors font-body" >Urgent</button>
+                        </div>
+                        <button data-modal-target="orderTestModal" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl transition-colors flex items-center space-x-2 font-body font-medium">
+                            <i data-lucide="plus" class="w-4 h-4"></i>
+                            <span class="hidden sm:inline">Order Test</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lab Results Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Lab Result Card 1 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-premium border border-gray-200 dark:border-gray-700 transition-shadow" >
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold font-display">
+                                    JS
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 dark:text-white font-display" >John Smith</h3>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400 font-body" >ID: #2847 • Age: 45</p>
+                                </div>
+                            </div>
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-medium rounded-full font-body">Completed</span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 dark:text-white mb-2 font-display" >Complete Blood Count (CBC)</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >WBC Count</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >7.2 K/μL</p>
+                                    <span class="text-green-600 dark:text-green-500 text-xs font-body">Normal</span>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >RBC Count</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >4.8 M/μL</p>
+                                    <span class="text-green-600 dark:text-green-500 text-xs font-body">Normal</span>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >Hemoglobin</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >14.2 g/dL</p>
+                                    <span class="text-green-600 dark:text-green-500 text-xs font-body">Normal</span>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >Platelets</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >285 K/μL</p>
+                                    <span class="text-green-600 dark:text-green-500 text-xs font-body">Normal</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700" >
+                            <div class="text-sm text-gray-500 dark:text-gray-400 font-body" >
+                                <p>Ordered: Dec 18, 2024</p>
+                                <p>Completed: Dec 19, 2024</p>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium text-sm font-body">View Full Report</button>
+                                <button class="text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-sm font-body" >Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lab Result Card 2 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-premium border border-gray-200 dark:border-gray-700 transition-shadow" >
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-red-600 rounded-full flex items-center justify-center text-white font-semibold font-display">
+                                    EM
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 dark:text-white font-display" >Emily Martinez</h3>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400 font-body" >ID: #2846 • Age: 32</p>
+                                </div>
+                            </div>
+                            <span class="px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 text-xs font-medium rounded-full font-body">Critical</span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 dark:text-white mb-2 font-display" >Lipid Panel</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >Total Cholesterol</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >285 mg/dL</p>
+                                    <span class="text-red-600 dark:text-red-500 text-xs font-body">High</span>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >LDL Cholesterol</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >185 mg/dL</p>
+                                    <span class="text-red-600 dark:text-red-500 text-xs font-body">High</span>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >HDL Cholesterol</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >35 mg/dL</p>
+                                    <span class="text-orange-600 dark:text-orange-500 text-xs font-body">Low</span>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >Triglycerides</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >220 mg/dL</p>
+                                    <span class="text-orange-600 dark:text-orange-500 text-xs font-body">Borderline</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700" >
+                            <div class="text-sm text-gray-500 dark:text-gray-400 font-body" >
+                                <p>Ordered: Dec 17, 2024</p>
+                                <p>Completed: Dec 19, 2024</p>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium text-sm font-body">View Full Report</button>
+                                <button class="text-red-600 dark:text-red-500 hover:text-red-700 dark:hover:text-red-400 text-sm font-body">Alert Doctor</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lab Result Card 3 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-premium border border-gray-200 dark:border-gray-700 transition-shadow" >
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center text-white font-semibold font-display">
+                                    MJ
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 dark:text-white font-display" >Michael Johnson</h3>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400 font-body" >ID: #2845 • Age: 28</p>
+                                </div>
+                            </div>
+                            <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-xs font-medium rounded-full font-body">Pending</span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 dark:text-white mb-2 font-display" >Thyroid Function Panel</h4>
+                            <div class="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4 text-center">
+                                <i data-lucide="clock" class="w-8 h-8 text-orange-600 dark:text-orange-500 mx-auto mb-2"></i>
+                                <p class="text-orange-700 dark:text-orange-300 font-medium font-body">Test in Progress</p>
+                                <p class="text-sm text-orange-600 dark:text-orange-400 mt-1 font-body">Expected completion: Dec 20, 2024</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700" >
+                            <div class="text-sm text-gray-500 dark:text-gray-400 font-body" >
+                                <p>Ordered: Dec 19, 2024</p>
+                                <p>Sample collected: Dec 19, 2024</p>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400 font-medium text-sm font-body">Track Progress</button>
+                                <button class="text-gray-500 dark:text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-sm font-body" >Expedite</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lab Result Card 4 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-premium border border-gray-200 dark:border-gray-700 transition-shadow" >
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold font-display">
+                                    SD
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 dark:text-white font-display" >Davis</h3>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400 font-body" >ID: #2844 • Age: 67</p>
+                                </div>
+                            </div>
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-medium rounded-full font-body">Completed</span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 dark:text-white mb-2 font-display" >Diabetes Panel (HbA1c)</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >HbA1c</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >6.8%</p>
+                                    <span class="text-orange-600 dark:text-orange-500 text-xs font-body">Borderline</span>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >Fasting Glucose</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >118 mg/dL</p>
+                                    <span class="text-orange-600 dark:text-orange-500 text-xs font-body">Elevated</span>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >Random Glucose</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >145 mg/dL</p>
+                                    <span class="text-orange-600 dark:text-orange-500 text-xs font-body">Elevated</span>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >Insulin</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >12.5 μU/mL</p>
+                                    <span class="text-green-600 dark:text-green-500 text-xs font-body">Normal</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700" >
+                            <div class="text-sm text-gray-500 dark:text-gray-400 font-body" >
+                                <p>Ordered: Dec 16, 2024</p>
+                                <p>Completed: Dec 18, 2024</p>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium text-sm font-body">View Full Report</button>
+                                <button class="text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400 text-sm font-body">Schedule Follow-up</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lab Result Card 5 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-premium border border-gray-200 dark:border-gray-700 transition-shadow" >
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-full flex items-center justify-center text-white font-semibold font-display">
+                                    RW
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 dark:text-white font-display" >Robert Wilson</h3>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400 font-body" >ID: #2843 • Age: 54</p>
+                                </div>
+                            </div>
+                            <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 text-xs font-medium rounded-full font-body">Urgent</span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 dark:text-white mb-2 font-display" >Liver Function Tests</h4>
+                            <div class="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4 text-center">
+                                <i data-lucide="alert-triangle" class="w-8 h-8 text-orange-600 dark:text-orange-500 mx-auto mb-2"></i>
+                                <p class="text-orange-700 dark:text-orange-300 font-medium font-body">Urgent - Sample Processing</p>
+                                <p class="text-sm text-orange-600 dark:text-orange-400 mt-1 font-body">Priority processing requested</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700" >
+                            <div class="text-sm text-gray-500 dark:text-gray-400 font-body" >
+                                <p>Ordered: Dec 19, 2024</p>
+                                <p>Sample collected: Dec 19, 2024</p>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400 font-medium text-sm font-body">Check Status</button>
+                                <button class="text-red-600 dark:text-red-500 hover:text-red-700 dark:hover:text-red-400 text-sm font-body">Contact Lab</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lab Result Card 6 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-premium border border-gray-200 dark:border-gray-700 transition-shadow" >
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-white font-semibold font-display">
+                                    LB
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-gray-800 dark:text-white font-display" >Lisa Brown</h3>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400 font-body" >ID: #2842 • Age: 39</p>
+                                </div>
+                            </div>
+                            <span class="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs font-medium rounded-full font-body">Completed</span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <h4 class="font-medium text-gray-800 dark:text-white mb-2 font-display" >Vitamin D & B12 Levels</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >Vitamin D</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >18 ng/mL</p>
+                                    <span class="text-orange-600 dark:text-orange-500 text-xs font-body">Low</span>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >Vitamin B12</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >425 pg/mL</p>
+                                    <span class="text-green-600 dark:text-green-500 text-xs font-body">Normal</span>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >Folate</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >8.2 ng/mL</p>
+                                    <span class="text-green-600 dark:text-green-500 text-xs font-body">Normal</span>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 dark:text-gray-400 font-body" >Iron</p>
+                                    <p class="font-medium text-gray-800 dark:text-white font-display" >95 μg/dL</p>
+                                    <span class="text-green-600 dark:text-green-500 text-xs font-body">Normal</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700" >
+                            <div class="text-sm text-gray-500 dark:text-gray-400 font-body" >
+                                <p>Ordered: Dec 15, 2024</p>
+                                <p>Completed: Dec 18, 2024</p>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium text-sm font-body">View Full Report</button>
+                                <button class="text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400 text-sm font-body">Prescribe Supplement</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex items-center justify-between mt-8">
+                    <p class="text-sm text-gray-600 dark:text-gray-400 font-body" >Showing 1-6 of 89 lab results</p>
+                    <div class="flex items-center space-x-2">
+                        <button class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors font-body" >Previous</button>
+                        <button class="px-3 py-2 bg-purple-600 text-white rounded-lg font-body">1</button>
+                        <button class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors font-body" >2</button>
+                        <button class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors font-body" >3</button>
+                        <button class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors font-body" >Next</button>
+                    </div>
+                </div>
+            </main>
+            <!-- Footer -->
+            <footer>
+                <div class="py-6 px-4 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row justify-center items-center h-16">
+                    <p class="text-sm font-body text-gray-500 dark:text-gray-400 mb-4 md:mb-0">
+                        © 2024 MedFlow. All rights reserved.
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <div id="orderTestModal" class="tw-modal fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="tw-modal-dialog bg-white dark:bg-gray-800 rounded-2xl shadow-premium p-8 w-full max-w-2xl mx-4" >
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-display font-bold text-gray-900 dark:text-white" >Order Lab Test</h3>
+                <button data-modal-close class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors" >
+                    <i data-lucide="x" class="w-6 h-6 dark:text-gray-300"></i>
+                </button>
+            </div>
+            <form id="orderTestForm" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body" >Patient</label>
+                        <select name="patient" required class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent font-body focus:outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white" >
+                            <option value="">Select Patient</option>
+                            <option value="john-smith">John Smith - #2847</option>
+                            <option value="emily-martinez">Emily Martinez - #2846</option>
+                            <option value="michael-johnson">Michael Johnson - #2845</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body" >Test Type</label>
+                        <select name="testType" required class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent focus:outline-none font-body bg-white dark:bg-gray-700 text-gray-900 dark:text-white" >
+                            <option value="">Select Test</option>
+                            <option value="cbc">Complete Blood Count (CBC)</option>
+                            <option value="lipid">Lipid Panel</option>
+                            <option value="thyroid">Thyroid Function</option>
+                            <option value="diabetes">Diabetes Panel</option>
+                            <option value="liver">Liver Function</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body" >Priority</label>
+                        <select name="priority" class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent focus:outline-none font-body bg-white dark:bg-gray-700 text-gray-900 dark:text-white" >
+                            <option value="routine">Routine</option>
+                            <option value="urgent">Urgent</option>
+                            <option value="stat">STAT</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body" >Expected Date</label>
+                        <input type="date" name="expectedDate" class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent focus:outline-none font-body bg-white dark:bg-gray-700 text-gray-900 dark:text-white" >
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 font-body" >Clinical Notes</label>
+                    <textarea name="notes" rows="3" placeholder="Additional instructions or clinical context..." class="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent focus:outline-none font-body bg-white dark:bg-gray-700 text-gray-900 dark:text-white" ></textarea>
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button type="button" data-modal-close class="px-6 py-3 border border-gray-200 dark:border-gray-600 rounded-xl font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors font-body" >Cancel</button>
+                    <button type="submit" class="px-6 py-3 bg-purple-600 text-white rounded-xl font-medium hover:bg-purple-700 transition-colors font-body">Order Test</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="assets/js/tailwind-modal.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
