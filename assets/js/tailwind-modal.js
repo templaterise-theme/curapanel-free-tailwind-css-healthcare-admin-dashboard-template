@@ -1,3 +1,9 @@
+/* 
+Name                 : CuraPanel - Free Tailwind CSS Healthcare Admin Dashboard Template
+Author               : TemplateRise
+Url                  : https://www.templaterise.com/template/curapanel-free-tailwind-css-healthcare-admin-dashboard-template 
+*/
+
 class TailwindModal {
   constructor(selector) {
     this.modal = document.querySelector(selector);

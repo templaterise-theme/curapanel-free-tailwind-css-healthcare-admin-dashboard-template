@@ -1,3 +1,10 @@
+/* 
+Name                 : CuraPanel - Free Tailwind CSS Healthcare Admin Dashboard Template
+Author               : TemplateRise
+Url                  : https://www.templaterise.com/template/curapanel-free-tailwind-css-healthcare-admin-dashboard-template 
+*/
+
+
 tailwind.config = {
   darkMode: "class",
   theme: {
