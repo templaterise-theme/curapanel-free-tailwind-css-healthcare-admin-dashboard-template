@@ -84,9 +84,21 @@ document.addEventListener("click", (e) => {
 const mobileSearchBtn = document.getElementById("mobile-search-btn");
 const mobileSearchContainer = document.getElementById("mobile-search-container");
 
-if (mobileSearchBtn) {
-  mobileSearchBtn.addEventListener("click", () => {
+if (mobileSearchBtn && mobileSearchContainer) {
+  // Toggle on button click
+  mobileSearchBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // prevent immediate outside click
     mobileSearchContainer.classList.toggle("hidden");
+  });
+
+  // Hide when clicking outside
+  document.addEventListener("click", (e) => {
+    if (
+      !mobileSearchContainer.contains(e.target) &&
+      !mobileSearchBtn.contains(e.target)
+    ) {
+      mobileSearchContainer.classList.add("hidden");
+    }
   });
 }
 
